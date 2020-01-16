@@ -6,7 +6,7 @@ import userbot
 
 
 def start(update: Update, context: CallbackContext):
-    update.message.reply_text('Привет. Этот бот используется только с @democratic_bot. И вообще он не работает.')
+    update.message.reply_text('Привет! Этот бот используется только с @democratic_bot. И вообще он не работает.')
 
 
 def creategrp(update: Update, context: CallbackContext):
