@@ -1,5 +1,4 @@
 import logging
-
 from telegram import Update
 from telegram.ext import Updater, CallbackContext, CommandHandler
 
@@ -16,6 +15,18 @@ def creategrp(update: Update, context: CallbackContext):
     update.message.reply_text('OK')
 
 
+def setup_logger(level=logging.DEBUG):
+    global logger
+    logger.name = "system alert"
+    fh = logging.FileHandler("log.log")
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+    logger.setLevel(level)
+
+
+logger = logging.getLogger("genderame_bot")
+setup_logger()
 updater = Updater(token=TOKEN, use_context=True, request_kwargs=request_kwargs)
 dp = updater.dispatcher
 dp.add_handler(CommandHandler('start', start))
