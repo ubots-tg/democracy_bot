@@ -8,7 +8,7 @@ engine = create_engine(database_uri)
 Base = declarative_base()
 
 
-class Groups(Base):
+class Group(Base):
     __tablename__ = 'groups'
 
     id = Column(Integer, primary_key=True)

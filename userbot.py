@@ -1,6 +1,6 @@
 from pyrogram import Client
-
 from secure import api_id, api_hash, proxy_host, proxy_port, proxy_username, proxy_password
+from db import engine, Base, Group
 
 app = Client("my_account", api_id=api_id, api_hash=api_hash, proxy=dict(
     hostname=proxy_host,
