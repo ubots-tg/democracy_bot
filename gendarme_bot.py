@@ -1,8 +1,9 @@
 from telegram import Update
 from telegram.ext import Updater, CallbackContext, CommandHandler
-
+import logging
 from secure import TOKEN, request_kwargs
 import userbot
+logging.getLogger("asyncio").setLevel(logging.DEBUG)
 
 
 def start(update: Update, context: CallbackContext):
@@ -19,6 +20,6 @@ dp = updater.dispatcher
 dp.add_handler(CommandHandler('start', start))
 dp.add_handler(CommandHandler('creategrp', creategrp))
 
-bot_id = updater.bot.get_me().id
+bot_username = updater.bot.get_me().username
 
 updater.start_polling()

@@ -10,22 +10,15 @@ app = Client("my_account", api_id=api_id, api_hash=api_hash, proxy=dict(
 ))
 
 
-@app.on_message(Filters.private)
-def hello(client, message):
-    print(1)
-
-
 groups = []
 
 
 def create_group(name: str, creator_id: int):
     group = app.create_supergroup(name)
     groups.append({'obj': group, 'owner': creator_id})
-    print(group.id)
-    print(groups)
-    app.add_chat_members(group.id, [creator_id, bot_id])
+    app.add_chat_members(group.id, [creator_id, bot_username])
 
 
 app.start()
 
-from gendarme_bot import bot_id
+from gendarme_bot import bot_username
