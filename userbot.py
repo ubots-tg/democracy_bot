@@ -21,4 +21,4 @@ def create_group(name: str, creator_id: int):
 
 app.start()
 
-from gendarme_bot import bot_username
+from gendarme_bot_old import bot_username
